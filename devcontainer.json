@@ -1,0 +1,27 @@
+{
+    "name": "Laravel",
+    "service": "cli",
+    "remoteUser": "user",
+    "shutdownAction": "stopCompose",
+    "workspaceFolder": "/workspaces/laravel",
+    "dockerComposeFile": "docker-compose.yaml",
+    "extensions": [
+        "oderwat.indent-rainbow",
+        "streetsidesoftware.code-spell-checker",
+        "shardulm94.trailing-spaces",
+        "formulahendry.auto-rename-tag",
+        "formulahendry.auto-close-tag",
+        "devsense.composer-php-vscode",
+        "bmewburn.vscode-intelephense-client",
+        "xdebug.php-debug",
+        "amiralizadeh9480.laravel-extra-intellisense",
+        "amiralizadeh9480.laravel-extra-intellisense",
+        "onecentlin.laravel5-snippets",
+        "onecentlin.laravel-blade",
+        "ryannaddy.laravel-artisan",
+        "codingyu.laravel-goto-view",
+        "shufo.vscode-blade-formatter",
+        "austenc.laravel-blade-spacer"
+        
+    ]
+}
