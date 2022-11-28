@@ -1,15 +1,15 @@
 version: '3'
 services:
-    
-### Workspace ###
+
+  ### CLI ###
   cli:
     build:
       context: ./cli
     volumes:
       - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}${APP_CODE_CONTAINER_FLAG}
     tty: true
-  
-### PHP-FPM ###
+
+  ### PHP-FPM ###
   php-fpm:
     build:
       context: ./php-fpm
@@ -20,8 +20,8 @@ services:
       - "9000"
     depends_on:
       - cli
-      
-### NGINX Server ###
+
+  ### NGINX ###
   nginx:
     image: nginx:stable-alpine
     restart: unless-stopped
@@ -34,9 +34,9 @@ services:
       - 80:80
       - 443:443
     depends_on:
-      - php-fpm   
-    
-### PostgreSQL ###
+      - php-fpm
+
+  ### PostgreSQL ###
   postgres:
     image: postgres:alpine
     restart: unless-stopped
@@ -48,8 +48,8 @@ services:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     volumes:
       - ${POSTGRES_DATA_PATH}:/var/lib/postgresql/data
-      
-### pgAdmin ###
+
+  ### pgAdmin ###
   pgadmin:
     image: dpage/pgadmin4:latest
     environment:
@@ -59,13 +59,13 @@ services:
       - "${PGADMIN_PORT}:80"
     depends_on:
       - postgres
-      
-### Redis ###
+
+  ### Redis ###
   redis:
     image: redis:alpine
     restart: unless-stopped
-  
-### Redis GUI ###
+
+  ### Redis GUI ###
   redis-gui:
     image: rediscommander/redis-commander:latest
     environment:
